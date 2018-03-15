@@ -1,0 +1,27 @@
+extends ../_layouts/base
+
+include ../_modules/link/link
+include ../_modules/molecules/side-slider/side-slider
+include ../_modules/organisms/header/header
+
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+  header
+
+    +header()
+
+  .slider
+
+    +side-slider({
+      "image": "../../images/Rectangle.png",
+      "elemId": "image1"
+    })
+
+    +side-slider({
+      "image": "../../images/Bitmap.png",
+      "elemId": "image2"
+    })

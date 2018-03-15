@@ -1,0 +1,10 @@
+mixin side-slider-magicscroll(spec)
+  - spec.__class = spec.__class || ''
+  - spec.image = spec.image || ''
+  - spec.elemId = spec.elemId || ''
+
+
+  div(class=spec.__class)&attributes(attributes)
+
+    div(id=spec.elemId)
+      img(src=spec.image)

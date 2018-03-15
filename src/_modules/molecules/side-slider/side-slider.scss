@@ -1,0 +1,23 @@
+// side-slider styles
+
+.slider{
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  flex-wrap: nowrap;
+  height: auto;
+  max-height: 400px;
+
+  div{
+    display: block;
+    float: left;
+    width: auto;
+    height: auto;
+    max-height: 400px;
+
+    img{
+      height: 600px;
+      width: auto;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+extends _layouts/base
+
+include _modules/link/link
+include _modules/molecules/side-slider/side-slider
+include _modules/molecules/side-slider-magicscroll/side-slider-magicscroll
+include _modules/organisms/header/header
+
+block content
+  .container
+
+    .yeogurt-info
+      +link({text: 'Sweet Scroll'})(href='/homepage')
+
+      +link({text: 'Magic Scroll'})(href='/magic-scroll')
+
