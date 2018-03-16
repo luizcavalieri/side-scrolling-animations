@@ -29,7 +29,7 @@ $(() => {
   let $body = $('body');
 
   $(document).ready(function(){
-    // $body.addClass('no-overflow');
+    $body.addClass('no-overflow');
   });
 
 

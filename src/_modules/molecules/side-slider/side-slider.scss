@@ -1,9 +1,12 @@
 // side-slider styles
 
 .slider-sweet-scroll{
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  flex-wrap: nowrap;
+  .container-images{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    flex-wrap: nowrap;
+  }
+
 
 }

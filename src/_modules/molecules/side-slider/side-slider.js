@@ -1,6 +1,8 @@
 'use strict';
 import SweetScroll, { Offset } from 'sweet-scroll';
 import $ from 'jquery';
+import _ from 'lodash';
+import debounce from 'lodash/debounce';
 
 export default class SideSlider {
 
@@ -9,46 +11,50 @@ export default class SideSlider {
     if(!$('.sweet-scroll')) return false;
 
     let scrollObj = new SweetScroll(),
-        $body = $('body');
+        $body = $('body'),
+        step = 0;
+
+    let optionsDebounce = {
+      'leading': true,
+      'trailing': false
+    };
 
 
-    $(window).on('mousewheel', function(){
+    $(window).on('mousewheel', debounce(function(){
 
-      // scrollObj.to(
-      //   '.image2',
-      //   {
-      //     header: '.header',
-      //     horizontal: true,
-      //     vertical: false,
-      //     stopPropagation: true,
-      //
-      //     before: function (scrollObj) {
-      //       console.log('before');
-      //     },
-      //
-      //     cancel: function () {
-      //
-      //     },
-      //
-      //     complete: function () {
-      //       $('.image2').removeClass('image2');
-      //       $('.background__green').addClass('image2');
-      //
-      //     },
-      //
-      //     step: function () {
-      //
-      //     },
-      //
-      //     after: function () {
-      //       console.log('after');
-      //       scrollObj.destroy();
-      //
-      //       scrollObj = new SweetScroll();
-      //
-      //     }
-      //   })
-      });
+      scrollObj.to(
+        '.step-'+ step,
+        {
+          header: '.header',
+          horizontal: true,
+          vertical: true,
+          stopPropagation: true,
+
+          before: function (scrollObj) {
+            console.log('before: '+ step);
+          },
+
+          cancel: function () {
+
+          },
+
+          complete: function () {
+            step ++;
+
+          },
+
+          step: function () {
+
+          },
+
+          after: function () {
+            console.log('after');
+            scrollObj = new SweetScroll();
+
+          }
+        })
+
+    }, 500, optionsDebounce));
   }
 }
 
