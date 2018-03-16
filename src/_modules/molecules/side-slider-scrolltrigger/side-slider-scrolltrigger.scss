@@ -1,0 +1,43 @@
+// side-slider-scrolltrigger styles
+
+
+.invisible {
+  transition: opacity 0.5s ease;
+  //left: 100px;
+  opacity: 0;
+}
+
+.visible {
+  transition: opacity 0.5s ease;
+  //right: 100px;
+  opacity: 1.0;
+}
+
+.slider{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: auto;
+  flex-wrap: nowrap;
+  height: auto;
+  max-height: 1200px;
+
+  .long-container {
+    min-height: 1200px;
+  }
+
+  div{
+    display: block;
+    float: left;
+    width: auto;
+    height: auto;
+    max-height: 800px;
+
+    img{
+      height: 800px;
+      width: auto;
+    }
+  }
+}
+
+

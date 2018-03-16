@@ -10,11 +10,11 @@ block config
   - var baseUrl = '../'
 
 block content
-  header
+  header.sweet-scroll
 
     +header()
 
-  .slider
+  .slider-sweet-scroll
 
     +side-slider({
       "image": "../../images/Rectangle.png",
@@ -23,5 +23,11 @@ block content
 
     +side-slider({
       "image": "../../images/Bitmap.png",
-      "elemId": "image2"
+      "elemId": "image2",
+      "__class": "image2"
     })
+
+    .full-width.background__green
+
+
+    .full-width.background__red

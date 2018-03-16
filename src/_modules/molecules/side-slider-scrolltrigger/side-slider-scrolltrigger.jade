@@ -1,0 +1,15 @@
+mixin side-slider-scrolltrigger(spec)
+  - spec.__class = spec.__class || ''
+  - spec.image = spec.image || ''
+  - spec.elemId = spec.elemId || ''
+  - spec.scroll = spec.scroll || false
+
+
+  div(class=spec.__class)&attributes(attributes)
+
+    div(id=spec.elemId)
+
+      if spec.scroll
+        img(src=spec.image, class="scrollable")
+      else
+        img(src=spec.image)

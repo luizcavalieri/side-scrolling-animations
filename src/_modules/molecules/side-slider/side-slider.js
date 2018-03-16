@@ -6,52 +6,50 @@ export default class SideSlider {
 
   constructor() {
     this.name = 'side-slider';
+    if(!$('.sweet-scroll')) return false;
 
     let scrollObj = new SweetScroll(),
         $body = $('body');
 
-    $(document).ready(function(){
-      $body.addClass('no-overflow');
-    });
 
     $(window).on('mousewheel', function(){
 
-      scrollObj.to(
-        '#image2',
-        {
-          header: '.header',
-          horizontal: true,
-          vertical: false,
-          stopPropagation: true,
-
-          before: function (scrollObj) {
-            console.log('before');
-          },
-
-          cancel: function () {
-
-          },
-
-          complete: function () {
-
-          },
-
-          step: function () {
-
-          },
-
-          after: function () {
-            console.log('after');
-            $body.removeClass('no-overflow');
-          }
-        });
-
-      console.log('scrolling');
-
-    });
-
+      // scrollObj.to(
+      //   '.image2',
+      //   {
+      //     header: '.header',
+      //     horizontal: true,
+      //     vertical: false,
+      //     stopPropagation: true,
+      //
+      //     before: function (scrollObj) {
+      //       console.log('before');
+      //     },
+      //
+      //     cancel: function () {
+      //
+      //     },
+      //
+      //     complete: function () {
+      //       $('.image2').removeClass('image2');
+      //       $('.background__green').addClass('image2');
+      //
+      //     },
+      //
+      //     step: function () {
+      //
+      //     },
+      //
+      //     after: function () {
+      //       console.log('after');
+      //       scrollObj.destroy();
+      //
+      //       scrollObj = new SweetScroll();
+      //
+      //     }
+      //   })
+      });
   }
-
 }
 
 

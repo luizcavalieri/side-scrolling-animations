@@ -2,6 +2,7 @@ extends ../_layouts/base
 
 include ../_modules/link/link
 include ../_modules/molecules/side-slider-magicscroll/side-slider-magicscroll
+include ../_modules/molecules/side-slider-scrolltrigger/side-slider-scrolltrigger
 include ../_modules/organisms/header/header
 
 block config
@@ -9,18 +10,23 @@ block config
   - var baseUrl = '../'
 
 block content
-  header.magic-scroll
+  header.scroll-trigger
 
     +header()
 
-  .slider
+  .slider-scroll-trigger(data-scroll="")
 
-    +side-slider-magicscroll({
+    +side-slider-scrolltrigger({
       "image": "../../images/Rectangle.png",
-      "elemId": "image1"
+      "elemId": "image3",
+      "scroll": true,
+      "__class": "long-container"
     })
 
-    +side-slider-magicscroll({
+    +side-slider-scrolltrigger({
       "image": "../../images/Bitmap.png",
-      "elemId": "image2"
+      "elemId": "image4",
+      "scroll": true,
+      "__class": "long-container"
     })
+

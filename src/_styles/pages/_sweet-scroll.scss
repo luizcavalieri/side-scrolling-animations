@@ -1,0 +1,33 @@
+.slider-sweet-scroll{
+
+  div.container-image{
+    display: block;
+    float: left;
+    width: auto;
+    height: auto;
+    max-height: 400px;
+
+    img{
+      height: 600px;
+      width: auto;
+    }
+  }
+
+  .full-width{
+    position: relative;
+    display: block;
+    height: 600px;
+    width: 100%;
+    float: none;
+
+    &.background{
+      &__green{
+        background: #009999;
+      }
+
+      &__red{
+        background: #953543;
+      }
+    }
+  }
+}

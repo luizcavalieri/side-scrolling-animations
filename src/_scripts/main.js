@@ -4,12 +4,15 @@
 'use strict';
 
 import $ from 'jquery';
+import _ from 'lodash';
 
 //elemets
 import Link from '../_modules/link/link';
 
 //molescules
 import SideSlider from '../_modules/molecules/side-slider/side-slider';
+import SideSliderMagicscroll from '../_modules/molecules/side-slider-magicscroll/side-slider-magicscroll';
+import SideSliderScrolltrigger from '../_modules/molecules/side-slider-scrolltrigger/side-slider-scrolltrigger';
 
 //organism
 import Header from '../_modules/organisms/header/header';
@@ -17,8 +20,19 @@ import Header from '../_modules/organisms/header/header';
 
 $(() => {
   new Link(); // Activate Link modules logic
-  new SideSlider(); // Activate SideSlider modules logic
   new Header(); // Activate Header modules logic
+
+  new SideSlider(); // Activate SideSlider modules logic
+  new SideSliderMagicscroll(); // Activate SideSlider modules logic
+  new SideSliderScrolltrigger(); // Activate SideSlider modules logic
+
+  let $body = $('body');
+
+  $(document).ready(function(){
+    // $body.addClass('no-overflow');
+  });
+
+
 
 });
 

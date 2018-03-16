@@ -8,9 +8,13 @@
 
 //molecules
 @import '../_modules/molecules/side-slider/side-slider';
+@import '../_modules/molecules/side-slider-magicscroll/side-slider-magicscroll';
+@import '../_modules/molecules/side-slider-scrolltrigger/side-slider-scrolltrigger';
 
 //organisms
 @import '../_modules/organisms/header/header';
+
+@import './pages/_sweet-scroll.scss';
 
 // Box sizing partial styles:
 // Apply a natural box layout model to all elements
