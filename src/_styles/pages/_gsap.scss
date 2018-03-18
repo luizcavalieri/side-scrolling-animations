@@ -1,0 +1,39 @@
+.slider-gsap{
+
+  div.container-image{
+    display: block;
+    float: left;
+    width: auto;
+    height: auto;
+
+    img{
+      height: 600px;
+      width: auto;
+    }
+  }
+
+  .container-fixed{
+    position: relative;
+    display: block;
+    width: 100vw;
+    height: auto;
+
+    .full-width{
+      position: relative;
+      display: block;
+      height: 600px;
+      width: 100%;
+      float: none;
+
+      &.background{
+        &__green{
+          background: #009999;
+        }
+
+        &__red{
+          background: #953543;
+        }
+      }
+    }
+  }
+}

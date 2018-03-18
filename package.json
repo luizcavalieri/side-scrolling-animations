@@ -2,7 +2,9 @@
   "name": "side-scrolling",
   "version": "0.0.1",
   "dependencies": {
+    "gsap": "^1.20.4",
     "jquery": "~3.1.1",
+    "jquery-mousewheel": "^3.1.13",
     "lodash": "^4.17.5",
     "normalize.css": "~5.0.0",
     "scrollmagic": "^2.0.5",
@@ -50,7 +52,6 @@
     "karma-browserify": "~5.1.1",
     "karma-jasmine": "~1.1.0",
     "karma-phantomjs-launcher": "~1.0.2",
-    "lodash": "~4.17.4",
     "minimist": "~1.2.0",
     "rimraf": "~2.6.1",
     "vinyl-buffer": "~1.0.0",

@@ -6,6 +6,7 @@ import $ from 'jquery';
 
 export default class SideSliderMagicscroll {
   constructor() {
+    if(!$('.magic-scroll').length) return false;
     this.name = 'side-slider-magicscroll';
     console.log('%s module', this.name.toLowerCase());
 

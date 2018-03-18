@@ -1,0 +1,12 @@
+mixin side-slider-gsap(spec)
+  - spec.__class = spec.__class || ''
+  - spec.image = spec.image || ''
+  - spec.elemId = spec.elemId || ''
+
+
+
+  div(class="container-image")&attributes(attributes)
+
+    div(id=spec.elemId, class="step "+spec.__class)
+
+      img(src=spec.image)

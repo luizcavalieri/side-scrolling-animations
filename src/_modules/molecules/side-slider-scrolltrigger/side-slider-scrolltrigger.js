@@ -30,7 +30,9 @@ export default class SideSliderScrolltrigger {
           },
           addHeight: false,
           once: false
-        },document.body, window);
+        }.bind(
+          document.querySelectorAll('.slide')
+        ),document.body, window);
 
       trigger.callScope = scope;
 

@@ -10,11 +10,13 @@
 @import '../_modules/molecules/side-slider/side-slider';
 @import '../_modules/molecules/side-slider-magicscroll/side-slider-magicscroll';
 @import '../_modules/molecules/side-slider-scrolltrigger/side-slider-scrolltrigger';
+@import '../_modules/molecules/side-slider-gsap/side-slider-gsap';
 
 //organisms
 @import '../_modules/organisms/header/header';
 
 @import './pages/_sweet-scroll.scss';
+@import './pages/_gsap.scss';
 
 // Box sizing partial styles:
 // Apply a natural box layout model to all elements

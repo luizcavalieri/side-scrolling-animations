@@ -1,26 +1,29 @@
 'use strict';
-import SweetScroll, { Offset } from 'sweet-scroll';
+import SweetScroll from 'sweet-scroll';
 import $ from 'jquery';
-import _ from 'lodash';
 import debounce from 'lodash/debounce';
 
 export default class SideSlider {
 
   constructor() {
     this.name = 'side-slider';
-    if(!$('.sweet-scroll')) return false;
+    if(!$('.sweet-scroll').length) return false;
+    console.log('%s module', this.name.toLowerCase());
 
     let scrollObj = new SweetScroll(),
-        $body = $('body'),
-        step = 0;
+      $body = $('body'),
+      step = 0,
+      optionsDebounce = {
+        'leading': false,
+        'trailing': true
+      };
 
-    let optionsDebounce = {
-      'leading': true,
-      'trailing': false
-    };
 
+    $body.addClass('no-overflow');
 
-    $(window).on('mousewheel', debounce(function(){
+    $(window).on( 'DOMMouseScroll mousewheel', debounce(function(){
+
+      console.log('scrolling' + step);
 
       scrollObj.to(
         '.step-'+ step,
@@ -29,6 +32,7 @@ export default class SideSlider {
           horizontal: true,
           vertical: true,
           stopPropagation: true,
+          updateURL: true,
 
           before: function (scrollObj) {
             console.log('before: '+ step);
@@ -54,7 +58,7 @@ export default class SideSlider {
           }
         })
 
-    }, 500, optionsDebounce));
+    }, 200, optionsDebounce));
   }
 }
 

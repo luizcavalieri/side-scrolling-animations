@@ -13,6 +13,7 @@ import Link from '../_modules/link/link';
 import SideSlider from '../_modules/molecules/side-slider/side-slider';
 import SideSliderMagicscroll from '../_modules/molecules/side-slider-magicscroll/side-slider-magicscroll';
 import SideSliderScrolltrigger from '../_modules/molecules/side-slider-scrolltrigger/side-slider-scrolltrigger';
+import SideSliderGsap from '../_modules/molecules/side-slider-gsap/side-slider-gsap';
 
 //organism
 import Header from '../_modules/organisms/header/header';
@@ -25,12 +26,11 @@ $(() => {
   new SideSlider(); // Activate SideSlider modules logic
   new SideSliderMagicscroll(); // Activate SideSlider modules logic
   new SideSliderScrolltrigger(); // Activate SideSlider modules logic
+  new SideSliderGsap(); // Activate SideSlider modules logic
 
   let $body = $('body');
 
-  $(document).ready(function(){
-    $body.addClass('no-overflow');
-  });
+
 
 
 

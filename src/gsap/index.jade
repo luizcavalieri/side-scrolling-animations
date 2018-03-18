@@ -1,0 +1,41 @@
+extends ../_layouts/base
+
+include ../_modules/link/link
+include ../_modules/molecules/side-slider-gsap/side-slider-gsap
+include ../_modules/organisms/header/header
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+  header.gsap
+
+    +header()
+
+  .slider-gsap.horizontal-scroll()
+
+    .container-images
+      +side-slider-gsap({
+        "image": "../../images/Rectangle.png",
+        "elemId": "image1",
+        "__class": "image2 step-0"
+      })
+
+      +side-slider-gsap({
+        "image": "../../images/Bitmap.png",
+        "elemId": "image2",
+        "__class": "image2 step-1"
+      })
+
+      +side-slider-gsap({
+        "image": "../../images/Bitmap.png",
+        "elemId": "image3",
+        "__class": "image3 step-2"
+      })
+
+    .container-fixed
+
+      .full-width.background__green.step-3.step
+
+      .full-width.background__red.step-4.step
