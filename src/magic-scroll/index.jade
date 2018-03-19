@@ -13,14 +13,45 @@ block content
 
     +header()
 
-  .slider
+  #pinContainer
+    #slideContainer
+      section.panel
+        b
+        +side-slider-magicscroll({
+          "image": "../../images/panel1.png",
+          "elemId": "image1"
+        })
+      section.panel
+        b
+        +side-slider-magicscroll({
+          "image": "../../images/panel2.png",
+          "elemId": "image2"
+        })
+      section.panel
+        b
+        +side-slider-magicscroll({
+          "image": "../../images/panel3.png",
+          "elemId": "image3"
+        })
+      section.panel
+        b
+        +side-slider-magicscroll({
+          "image": "../../images/panel4.png",
+          "elemId": "image4"
+        })
 
-    +side-slider-magicscroll({
-      "image": "../../images/Rectangle.png",
-      "elemId": "image1"
-    })
 
-    +side-slider-magicscroll({
-      "image": "../../images/Bitmap.png",
-      "elemId": "image2"
-    })
+  .slider-scrollmagic
+
+    .container-images
+
+      +side-slider-magicscroll({
+        "image": "../../images/explore-plan-direction.png",
+        "elemId": "image1"
+      })
+
+      +side-slider-magicscroll({
+        "image": "../../images/Bitmap.png",
+        "elemId": "image2"
+      })
+

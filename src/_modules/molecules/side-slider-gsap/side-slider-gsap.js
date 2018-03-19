@@ -2,15 +2,17 @@
 
 import $ from "jquery";
 
-import TweenMax from 'gsap/TweenMax';
+import TweenMax from 'gsap';
+import TweenLite from 'gsap';
 import TimelineMax from 'gsap';
+import ScrollToPlugin from 'gsap';
 
 import debounce from "lodash/debounce";
 import SweetScroll from "sweet-scroll";
 
 export default class SideSliderGsap {
   constructor() {
-    if(!$('.gsap').length) return false;
+    if(!$('.slider-gsap').lenght) return false;
     this.name = 'side-slider-gsap';
     console.log('%s module', this.name.toLowerCase());
 
@@ -32,17 +34,18 @@ export default class SideSliderGsap {
         useFrames: true // Set timing based on frames (default seconds)
       },
       tl = new TimelineMax({tlOptions}),
-      tweenMax = new TweenMax(),
+      // tweenMax = new TweenMax(),
+      // scrollTo = new ScrollToPlugin(),
       isForward = true,
-      numOfSteps = 0;
-
+      numOfSteps = 0,
+      scrollPosition = 0;
 
     getStepNumber();
     scrollTrigger();
     // $body.addClass('no-overflow');
-    scrollingDown(0, isForward);
+    // scrollingDown(0, isForward);
     horizontalScroll();
-
+    animationScroll();
 
     function getStepNumber(){
 
@@ -52,39 +55,70 @@ export default class SideSliderGsap {
       });
     }
 
-
     function scrollTrigger(){
 
-      $(window).on('DOMMouseScroll mousewheel wheel', debounce(function(event){
-        console.log('scrolling');
+      $(window).on('DOMMouseScroll mousewheel wheel', function(event){
+        event.preventDefault();
 
+        console.log('scrolling');
         if( event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 ) {
+          scrollPosition++;
+          step >= numOfSteps ? step = numOfSteps-1 : step++;
+          scrollingDown(step, scrollPosition);
+
           console.log('scrolling down: '+ step);
           console.log('Num of steps: '+ numOfSteps);
-          step >= numOfSteps ? step = numOfSteps-1 : step++;
-          scrollingDown(step, isForward);
+          console.log('Scroll position: '+ scrollPosition);
         } else {
-          console.log('scrolling up: '+ step);
+          scrollPosition--;
           step < 1 ? step = 0 : step--;
-          scrollingDown(step, isForward);
-        }
+          scrollingDown(step, scrollPosition);
 
-      }, 400, optionsDebounce));
+          console.log('scrolling up: '+ step);
+          console.log('Num of steps: '+ numOfSteps);
+          console.log('Scroll position: '+ scrollPosition);
+        }
+        return false;
+
+      });
     }
 
-    function scrollingDown(stepNum, isForwardScope) {
+    function animationScroll(){
 
-      TweenMax.to(window, 1, {
-        scrollTo:
-          {
-            y:"#image3",
-            offsetY:70
-          }
-        }
-      );
+      let image = $('.step-3');
 
-      let image = $('#image3');
-      TweenMax.to(image, 2, {scrollTo:{y:400, autoKill:false}, ease:Power2.easeOut});
+      // TweenMax
+      //   .to($(window), 1, {scrollTo:{y:'.step-3', offsetX:600}});
+
+      $(window).scroll(function(event){
+        event.preventDefault();
+
+        let winPos = $(this).scrollTop()*1;
+
+        console.log(winPos);
+
+        // $('.horizontal-scroll')
+        //   .css(
+        //     'transform',
+        //     'translate3d('
+        //     + $(this).scrollTop()*-1 +
+        //     'px, '
+        //     + $(this).scrollTop()*1 +
+        //     'px, 0)');
+
+      }).scroll();
+
+    }
+
+    function scrollingDown(stepNum, scrollPosition) {
+
+      let image = $('.step-3');
+      // TweenMax.to(image, 2, {
+      //   left: scrollPosition*100
+      // });
+
+      // TweenMax
+      //   .to(image, 2, {scrollTo:{y:400, autoKill:false}, ease:Power2.easeOut});
 
 
 
@@ -123,18 +157,20 @@ export default class SideSliderGsap {
     }
 
     function horizontalScroll() {
-        // $(window).scroll(function(){
-        //
-        //   $('.horizontal-scroll')
-        //     .css(
-        //       'transform',
-        //       'translate3d('
-        //       + $(this).scrollTop()*-1 +
-        //       'px, '
-        //       + $(this).scrollTop()*1 +
-        //       'px, 0)');
-        //
-        // }).scroll();
+        $(window).scroll(function(){
+          // $('.horizontal-scroll')
+          //   .css(
+          //     'transform',
+          //     'translate3d('
+          //     + $(this).scrollTop()*-1 +
+          //     'px, '
+          //     + $(this).scrollTop()*1 +
+          //     'px, 0)');
+
+        }).scroll();
+
     }
+
+
   }
 }

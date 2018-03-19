@@ -1,0 +1,38 @@
+
+#pinContainer {
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+#slideContainer {
+  width: 400%; /* to contain 4 panels, each with 100% of window width */
+  height: 80%;
+}
+.panel {
+  height: 80%;
+  width: 25%; /* relative to parent -> 25% of 400% = 100% of window width */
+  float: left;
+
+  img{
+    width: 100%;
+  }
+}
+
+
+.slider-scrollmagic{
+  width: 100%;
+  background: #ffffff;
+  .container-images{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    flex-wrap: nowrap;
+
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -1,7 +1,9 @@
 'use strict';
 
-import ScrollMagic from 'scrollmagic';
-import TweenMax from 'scrollmagic';
+import ScrollMagic from 'scrollmagic/scrollmagic/uncompressed/ScrollMagic';
+import setTween from 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
+import addIndicators from 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
+import TweenMax from 'gsap';
 import $ from 'jquery';
 
 export default class SideSliderMagicscroll {
@@ -10,21 +12,43 @@ export default class SideSliderMagicscroll {
     this.name = 'side-slider-magicscroll';
     console.log('%s module', this.name.toLowerCase());
 
-    // var controller = new ScrollMagic.Controller();
-    //
-    // var scene = new ScrollMagic.Scene();
+    var controller = new ScrollMagic.Controller();
 
+    // define movement of panels
+    var wipeAnimation = new TimelineMax()
+    // animate to second panel
+    //   .to("#slideContainer", 0.5, {z: -150})		// move back in 3D space
+      .to("#slideContainer", 1,   {x: "-25%"})	// move in to first panel
+      // .to("#slideContainer", 0.5, {z: 0})				// move back to origin in 3D space
+      // // animate to third panel
+      // .to("#slideContainer", 0.5, {z: -150, delay: 1})
+      .to("#slideContainer", 1,   {x: "-50%"})
+      // .to("#slideContainer", 0.5, {z: 0})
+      // // animate to forth panel
+      // .to("#slideContainer", 0.5, {z: -150, delay: 1})
+      .to("#slideContainer", 1,   {x: "-75%"})
+      // .to("#slideContainer", 0.5, {z: 0});
 
-    // init controller
-    // var controller = new ScrollMagic.Controller({vertical: false});
-    // // build tween
-    // var tween = TweenMax.to("#target", 0.5, {backgroundColor: "green", width: "+=400"});
-    // // build scene
-    // var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500})
-    //   .setTween(tween)
-    //   .addIndicators() // add indicators (requires plugin)
-    //   .addTo(controller);
+    // create scene to pin and link animation
+    new ScrollMagic.Scene({
+      triggerElement: "header",
+      triggerHook: "onLeave",
+      duration: "400%"
+    })
+      .setPin("#pinContainer", {pushFollowers: false})
+      .setTween(wipeAnimation)
+      .addIndicators() // add indicators (requires plugin)
+      .addTo(controller);
 
+    new ScrollMagic.Scene({
+      triggerElement: "header",
+      triggerHook: "onLeave",
+      duration: "200%"
+    })
+      .setPin(".slider-scrollmagic")
+      .setTween(wipeAnimation)
+      .addIndicators() // add indicators (requires plugin)
+      .addTo(controller);
 
   }
 }

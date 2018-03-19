@@ -6,25 +6,34 @@ mixin side-slider-magicscroll(spec)
 
   div(class=spec.__class)&attributes(attributes)
 
-    ul#menu
-      #content-wrapper
-        #example-wrapper.horizontal
-          .scrollContent
-            section#titlechart
-              #description
-                h1.badge.gsap Going Horizontal
-                h2 ScrollMagic can handle horizontal scrolls just as well.
-                p
-                  | To react to horizontal scrolls the
-                  code ScrollMagic.Controller
-                  |  simply needs to be initialized using the option
-                  code {vertical: false}
-                  | .
-                a.viewsource(href='#') view source
-            section.demo
-              .spacer.s2
-              #trigger.spacer.s0
-              #target.box2.blue
-                p Widen the horizon.
-                a.viewsource(href='#') view source
-              .spacer.s2
+    div(class="container-image")&attributes(attributes)
+
+      div(id=spec.elemId, class="step " + spec.__class)
+
+        img(src=spec.image)
+
+    //ul#menu
+    //  #content-wrapper
+    //    #example-wrapper.horizontal
+    //      .scrollContent
+    //        section#titlechart
+    //          #description
+    //            h1.badge.gsap Going Horizontal
+    //            h2 ScrollMagic can handle horizontal scrolls just as well.
+    //            p
+    //              | To react to horizontal scrolls the
+    //              code ScrollMagic.Controller
+    //              |  simply needs to be initialized using the option
+    //              code {vertical: false}
+    //              | .
+    //            a.viewsource(href='#') view source
+    //        section.demo
+    //          .spacer.s2
+    //          #trigger.spacer.s0
+    //          #target.box2.blue
+    //            p Widen the horizon.
+    //            a.viewsource(href='#') view source
+    //          .spacer.s2
+
+
+
