@@ -2,38 +2,21 @@ mixin side-slider-magicscroll(spec)
   - spec.__class = spec.__class || ''
   - spec.image = spec.image || ''
   - spec.elemId = spec.elemId || ''
+  - spec.svg = spec.svg || ''
 
 
   div(class=spec.__class)&attributes(attributes)
 
-    div(class="container-image")&attributes(attributes)
+    .container-image&attributes(attributes)
 
       div(id=spec.elemId, class="step " + spec.__class)
 
-        img(src=spec.image)
+        if spec.svg
 
-    //ul#menu
-    //  #content-wrapper
-    //    #example-wrapper.horizontal
-    //      .scrollContent
-    //        section#titlechart
-    //          #description
-    //            h1.badge.gsap Going Horizontal
-    //            h2 ScrollMagic can handle horizontal scrolls just as well.
-    //            p
-    //              | To react to horizontal scrolls the
-    //              code ScrollMagic.Controller
-    //              |  simply needs to be initialized using the option
-    //              code {vertical: false}
-    //              | .
-    //            a.viewsource(href='#') view source
-    //        section.demo
-    //          .spacer.s2
-    //          #trigger.spacer.s0
-    //          #target.box2.blue
-    //            p Widen the horizon.
-    //            a.viewsource(href='#') view source
-    //          .spacer.s2
+          object(type="image/svg+xml", data=spec.svg, class="background-slider") Your browser does not support SVGs
 
+        else
+
+          img(src=spec.image)
 
 

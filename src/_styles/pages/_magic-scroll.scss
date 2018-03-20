@@ -15,10 +15,21 @@
   width: 25%; /* relative to parent -> 25% of 400% = 100% of window width */
   float: left;
 
-  img{
+  img, object, svg{
     width: 100%;
+
+    &.svg-bubble{
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 0;
+      opacity: 0.8;
+    }
+
+
   }
 }
+
 
 
 .slider-scrollmagic{

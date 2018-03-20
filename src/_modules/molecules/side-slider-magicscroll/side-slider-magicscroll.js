@@ -12,7 +12,19 @@ export default class SideSliderMagicscroll {
     this.name = 'side-slider-magicscroll';
     console.log('%s module', this.name.toLowerCase());
 
-    var controller = new ScrollMagic.Controller();
+    let controller = new ScrollMagic.Controller();
+
+    // let svgContainer = $('object.background-slider');
+    //   // svgDoc = svgContainer.contentDocument;
+    //
+    //
+    // $('object').hover(function () {
+    //
+    //   $(svgDoc).find('Oval-Copy-5').css('r', '100');
+    //
+    // });
+
+
 
     // define movement of panels
     var wipeAnimation = new TimelineMax()
